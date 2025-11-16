@@ -1,8 +1,7 @@
-package kr.hhplus.be.domain.user.serviceImpl;
+package kr.hhplus.be.domain.user.service;
 
 import kr.hhplus.be.domain.user.entity.UserDto;
 import kr.hhplus.be.domain.user.repository.UserRepository;
-import kr.hhplus.be.domain.user.service.UserService;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

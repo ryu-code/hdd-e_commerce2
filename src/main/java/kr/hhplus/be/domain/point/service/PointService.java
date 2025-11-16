@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.point.service.impl;
+package kr.hhplus.be.domain.point.service;
 
 import kr.hhplus.be.domain.point.entity.PointDto;
 import org.springframework.stereotype.Service;
