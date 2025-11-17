@@ -13,7 +13,7 @@ public class PointDto {
 
     Long userId;
 
-    Long balance;
+    Long point;
 
     LocalDateTime createdAt;
 
@@ -22,4 +22,6 @@ public class PointDto {
     String reason;
 
     Long relatedOrderId;
+
+    Long amount;
 }

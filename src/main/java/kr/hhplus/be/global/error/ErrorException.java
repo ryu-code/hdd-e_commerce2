@@ -15,4 +15,10 @@ public class ErrorException {
             super(message);
         }
     }
+
+    public static class CantNotChargeException extends RuntimeException {
+        public CantNotChargeException(String message) {
+            super(message);
+        }
+    }
 }

@@ -18,7 +18,7 @@ public class PointHistoryServiceImpl implements PointHistoryService{
         if (pointDto.getUserId() == null) throw ErrorException.inputDataNullException;
 
         PointHistoryDto pointHistoryDto = new PointHistoryDto();
-        pointHistoryDto.setBalance(pointDto.getBalance());
+        pointHistoryDto.setPoint(pointDto.getPoint());
         pointHistoryDto.setPointId(pointDto.getPointId());
         pointHistoryDto.setReason(pointDto.getReason());
         pointHistoryDto.setRelatedOrderId(pointDto.getRelatedOrderId());

@@ -13,7 +13,7 @@ public class PointHistoryDto {
 
     Long pointId;
 
-    Long balance;
+    Long point;
 
     String reason;
 

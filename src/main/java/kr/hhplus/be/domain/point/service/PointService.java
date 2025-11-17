@@ -1,7 +1,7 @@
 package kr.hhplus.be.domain.point.service;
 
 import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.product.entity.Product;
+import kr.hhplus.be.domain.pointHistory.entity.PointResponse;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;

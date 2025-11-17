@@ -17,7 +17,7 @@ public class PointHistory {
 
     Long pointId;
 
-    Long balance;
+    Long point;
 
     String reason;
 

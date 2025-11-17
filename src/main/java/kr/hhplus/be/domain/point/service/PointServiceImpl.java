@@ -2,6 +2,7 @@ package kr.hhplus.be.domain.point.service;
 
 import kr.hhplus.be.domain.point.entity.PointDto;
 import kr.hhplus.be.domain.point.repository.PointRepository;
+import kr.hhplus.be.domain.pointHistory.entity.PointResponse;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

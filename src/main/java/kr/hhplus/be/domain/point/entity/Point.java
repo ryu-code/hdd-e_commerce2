@@ -15,7 +15,7 @@ public class Point {
 
     Long userId;
 
-    Long balance;
+    Long point;
 
     @CreatedDate
     LocalDateTime createdAt;

@@ -35,7 +35,7 @@ public class OrderFacade {
 
         // 사용자 포인트 조회
         PointDto userPoint = pointService.getUserPoint(orderDto.getUserId());
-        if (userPoint.getBalance() < product.getPrice() * orderDto.getTotalAmount())
+        if (userPoint.getPoint() < product.getPrice() * orderDto.getTotalAmount())
             throw new ErrorException.CantNotPurchaseException("포인트가 부족합니다.");
 
         // 상품 구매
@@ -43,7 +43,7 @@ public class OrderFacade {
         productService.save(product);
 
         // 사용자 포인트 차감
-        userPoint.setBalance(userPoint.getBalance() - (product.getPrice() * orderDto.getTotalAmount()));
+        userPoint.setPoint(userPoint.getPoint() - (product.getPrice() * orderDto.getTotalAmount()));
         pointService.save(userPoint);
 
         // 사용자 포인트 히스토리 저장
