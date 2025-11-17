@@ -1,11 +1,13 @@
 package kr.hhplus.be.domain.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
 
