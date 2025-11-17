@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.product.entity;
+package kr.hhplus.be.domain.order.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,18 +8,18 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-@Entity
 @Data
-public class Product {
+@Entity
+public class Order {
 
     @Id
-    Long productId;
+    Long orderId;
 
-    String productName;
+    Long userId;
 
-    int price;
+    String orderStatus;
 
-    int stock;
+    int totalAmount;
 
     @CreatedDate
     LocalDateTime createdAt;

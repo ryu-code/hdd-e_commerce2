@@ -9,4 +9,10 @@ public class ErrorException {
             return "입력값이 null 입니다.";
         }
     }
+
+    public static class CantNotPurchaseException extends RuntimeException {
+        public CantNotPurchaseException(String message) {
+            super(message);
+        }
+    }
 }

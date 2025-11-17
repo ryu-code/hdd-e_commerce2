@@ -1,10 +1,9 @@
 package kr.hhplus.be.domain.user.facade;
 
 import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.point.service.impl.PointService;
+import kr.hhplus.be.domain.point.service.PointService;
 import kr.hhplus.be.domain.user.entity.UserDto;
 import kr.hhplus.be.domain.user.entity.UserResponse;
-import kr.hhplus.be.domain.user.repository.UserRepository;
 import kr.hhplus.be.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 

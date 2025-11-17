@@ -1,5 +1,6 @@
 package kr.hhplus.be.domain.product.service;
 
+import kr.hhplus.be.domain.product.entity.Product;
 import kr.hhplus.be.domain.product.entity.ProductDto;
 import kr.hhplus.be.domain.product.repository.ProductRepository;
 import kr.hhplus.be.global.error.ErrorException;
@@ -18,4 +19,8 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.findProductById(productId);
     }
 
+    @SneakyThrows
+    public Product save(ProductDto productDto) {
+        return productRepository.save(productDto);
+    }
 }

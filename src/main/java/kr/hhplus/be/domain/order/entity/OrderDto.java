@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.product.entity;
+package kr.hhplus.be.domain.order.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -7,17 +7,17 @@ import java.time.LocalDateTime;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductDto {
+public class OrderDto {
+
+    Long orderId;
 
     Long userId;
 
     Long productId;
 
-    String productName;
+    String orderStatus;
 
-    int price;
-
-    int stock;
+    int totalAmount;
 
     LocalDateTime createdAt;
 

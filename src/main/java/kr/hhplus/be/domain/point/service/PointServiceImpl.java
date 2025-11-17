@@ -6,6 +6,8 @@ import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
+import java.awt.*;
+
 
 @RequiredArgsConstructor
 public class PointServiceImpl implements PointService{
@@ -19,4 +21,8 @@ public class PointServiceImpl implements PointService{
         return pointRepository.findPointByUserId(userId);
     }
 
+    @SneakyThrows
+    public Point save(PointDto pointDto) {
+        return pointRepository.save(pointDto);
+    }
 }
