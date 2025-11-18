@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
-public class UserControlelr {
+public class UserController {
 
     private final UserFacade userFacade;
 
