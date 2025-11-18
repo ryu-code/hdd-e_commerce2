@@ -1,7 +1,7 @@
-package kr.hhplus.be.domain.pointHistory.repository;
+package kr.hhplus.be.server.domain.pointHistory.repository;
 
-import kr.hhplus.be.domain.pointHistory.entity.PointHistory;
-import kr.hhplus.be.domain.pointHistory.entity.PointHistoryDto;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointHistory;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointHistoryDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

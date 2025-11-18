@@ -1,9 +1,9 @@
-package kr.hhplus.be.domain.product.entity;
+package kr.hhplus.be.server.domain.product.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.user.entity.UserDto;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.user.entity.UserDto;
 import lombok.Builder;
 import lombok.Data;
 

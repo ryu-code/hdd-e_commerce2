@@ -1,10 +1,10 @@
-package kr.hhplus.be.domain.user.facade;
+package kr.hhplus.be.server.domain.user.facade;
 
-import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.point.service.PointService;
-import kr.hhplus.be.domain.user.entity.UserDto;
-import kr.hhplus.be.domain.user.entity.UserResponse;
-import kr.hhplus.be.domain.user.service.UserService;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.point.service.PointService;
+import kr.hhplus.be.server.domain.user.entity.UserDto;
+import kr.hhplus.be.server.domain.user.entity.UserResponse;
+import kr.hhplus.be.server.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

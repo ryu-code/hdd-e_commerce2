@@ -1,9 +1,9 @@
-package kr.hhplus.be.domain.pointHistory.service;
+package kr.hhplus.be.server.domain.pointHistory.service;
 
-import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.pointHistory.entity.PointHistory;
-import kr.hhplus.be.domain.pointHistory.entity.PointHistoryDto;
-import kr.hhplus.be.domain.pointHistory.repository.PointHistoryRepository;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointHistory;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointHistoryDto;
+import kr.hhplus.be.server.domain.pointHistory.repository.PointHistoryRepository;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

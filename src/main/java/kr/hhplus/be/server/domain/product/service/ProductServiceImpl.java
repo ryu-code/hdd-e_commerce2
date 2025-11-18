@@ -1,8 +1,8 @@
-package kr.hhplus.be.domain.product.service;
+package kr.hhplus.be.server.domain.product.service;
 
-import kr.hhplus.be.domain.product.entity.Product;
-import kr.hhplus.be.domain.product.entity.ProductDto;
-import kr.hhplus.be.domain.product.repository.ProductRepository;
+import kr.hhplus.be.server.domain.product.entity.Product;
+import kr.hhplus.be.server.domain.product.entity.ProductDto;
+import kr.hhplus.be.server.domain.product.repository.ProductRepository;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

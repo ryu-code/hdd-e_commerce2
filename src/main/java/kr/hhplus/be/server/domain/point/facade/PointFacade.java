@@ -1,10 +1,10 @@
-package kr.hhplus.be.domain.point.facade;
+package kr.hhplus.be.server.domain.point.facade;
 
-import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.point.service.PointService;
-import kr.hhplus.be.domain.pointHistory.entity.PointResponse;
-import kr.hhplus.be.domain.pointHistory.service.PointHistoryService;
-import kr.hhplus.be.domain.user.service.UserService;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.point.service.PointService;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointResponse;
+import kr.hhplus.be.server.domain.pointHistory.service.PointHistoryService;
+import kr.hhplus.be.server.domain.user.service.UserService;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

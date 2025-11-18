@@ -1,7 +1,7 @@
-package kr.hhplus.be.domain.order.service;
+package kr.hhplus.be.server.domain.order.service;
 
-import kr.hhplus.be.domain.order.entity.Order;
-import kr.hhplus.be.domain.order.entity.OrderDto;
+import kr.hhplus.be.server.domain.order.entity.Order;
+import kr.hhplus.be.server.domain.order.entity.OrderDto;
 import org.springframework.stereotype.Service;
 
 @Service

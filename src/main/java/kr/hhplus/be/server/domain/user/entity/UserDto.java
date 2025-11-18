@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.user.entity;
+package kr.hhplus.be.server.domain.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;

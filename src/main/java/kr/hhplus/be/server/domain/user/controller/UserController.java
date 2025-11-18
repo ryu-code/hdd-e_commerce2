@@ -1,8 +1,8 @@
-package kr.hhplus.be.domain.user.controller;
+package kr.hhplus.be.server.domain.user.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kr.hhplus.be.domain.user.entity.UserResponse;
-import kr.hhplus.be.domain.user.facade.UserFacade;
+import kr.hhplus.be.server.domain.user.entity.UserResponse;
+import kr.hhplus.be.server.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.pointHistory.entity;
+package kr.hhplus.be.server.domain.pointHistory.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

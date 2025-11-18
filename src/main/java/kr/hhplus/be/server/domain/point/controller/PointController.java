@@ -1,9 +1,9 @@
-package kr.hhplus.be.domain.point.controller;
+package kr.hhplus.be.server.domain.point.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kr.hhplus.be.domain.point.entity.PointDto;
-import kr.hhplus.be.domain.pointHistory.entity.PointResponse;
-import kr.hhplus.be.domain.point.facade.PointFacade;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.pointHistory.entity.PointResponse;
+import kr.hhplus.be.server.domain.point.facade.PointFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

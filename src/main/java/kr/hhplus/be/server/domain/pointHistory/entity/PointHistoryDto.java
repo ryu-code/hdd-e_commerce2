@@ -1,4 +1,4 @@
-package kr.hhplus.be.domain.pointHistory.entity;
+package kr.hhplus.be.server.domain.pointHistory.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

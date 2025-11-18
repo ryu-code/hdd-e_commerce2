@@ -1,7 +1,7 @@
-package kr.hhplus.be.domain.product.repository;
+package kr.hhplus.be.server.domain.product.repository;
 
-import kr.hhplus.be.domain.product.entity.Product;
-import kr.hhplus.be.domain.product.entity.ProductDto;
+import kr.hhplus.be.server.domain.product.entity.Product;
+import kr.hhplus.be.server.domain.product.entity.ProductDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

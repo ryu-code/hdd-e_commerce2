@@ -1,6 +1,6 @@
-package kr.hhplus.be.domain.point.repository;
+package kr.hhplus.be.server.domain.point.repository;
 
-import kr.hhplus.be.domain.point.entity.PointDto;
+import kr.hhplus.be.server.domain.point.entity.PointDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.awt.*;
