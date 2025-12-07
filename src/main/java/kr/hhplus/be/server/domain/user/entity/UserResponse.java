@@ -15,5 +15,5 @@ public class UserResponse {
     private UserDto user;
 
     @JsonProperty("userPoint")
-    private PointDto userPoint;
+    private long userPoint;
 }

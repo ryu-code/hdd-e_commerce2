@@ -49,7 +49,7 @@ class UserControllerGetUserTests {
 
 		UserResponse response = UserResponse.builder()
 				.user(userDto)
-				.userPoint(pointDto)
+				.userPoint(pointDto.getPoint())
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);
@@ -80,7 +80,7 @@ class UserControllerGetUserTests {
 
 		UserResponse response = UserResponse.builder()
 				.user(userDto)
-				.userPoint(pointDto)
+				.userPoint(pointDto.getPoint())
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);
@@ -146,7 +146,7 @@ class UserControllerGetUserTests {
 
 		UserResponse response = UserResponse.builder()
 				.user(userDto)
-				.userPoint(pointDto)
+				.userPoint(pointDto.getPoint())
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);
@@ -172,10 +172,7 @@ class UserControllerGetUserTests {
 						.userName("정성호")
 						.userEmail("jung@example.com")
 						.build())
-				.userPoint(PointDto.builder()
-						.userId(userId)
-						.point(15000L)
-						.build())
+				.userPoint(100L)
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);
@@ -196,10 +193,7 @@ class UserControllerGetUserTests {
 						.userName("조테스터")
 						.userEmail("jo@example.com")
 						.build())
-				.userPoint(PointDto.builder()
-						.userId(userId)
-						.point(20000L)
-						.build())
+				.userPoint(20000L)
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);
@@ -221,10 +215,7 @@ class UserControllerGetUserTests {
 						.userName("범준호")
 						.userEmail("beom@example.com")
 						.build())
-				.userPoint(PointDto.builder()
-						.userId(userId)
-						.point(999999999L)
-						.build())
+				.userPoint(999999999L)
 				.build();
 
 		when(userFacade.getUser(userId)).thenReturn(response);

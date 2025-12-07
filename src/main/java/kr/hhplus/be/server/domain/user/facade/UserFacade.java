@@ -21,7 +21,7 @@ public class UserFacade {
         UserDto userResponse = userService.getUser(userId);
 
         //사용자 포인트 조회
-        PointDto pointResponse = pointService.getUserPoint(userId);
+        long pointResponse = pointService.checkUserPoint(userId);
 
         return UserResponse.builder()
                 .user(userResponse)

@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.domain.order.facade;
 
+import jakarta.transaction.Transactional;
 import kr.hhplus.be.server.domain.order.entity.Order;
 import kr.hhplus.be.server.domain.order.entity.OrderDto;
 import kr.hhplus.be.server.domain.order.entity.OrderResponse;
@@ -11,7 +12,6 @@ import kr.hhplus.be.server.domain.product.entity.ProductDto;
 import kr.hhplus.be.server.domain.product.service.ProductService;
 import kr.hhplus.be.global.error.ErrorException;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 
 @RequiredArgsConstructor
 public class OrderFacade {
@@ -21,40 +21,25 @@ public class OrderFacade {
     private final OrderService orderService;
     private final PointHistoryService pointHistoryService;
 
-    @SneakyThrows
-    public OrderResponse saveOrder(OrderDto orderDto) {
-
-        // 주문 이력 저장
-        Order order = orderService.save(orderDto);
-
-        // 상품아이템 조회
-        ProductDto product = productService.getProduct(orderDto.getProductId());
-
-        if (product.getStock() < orderDto.getTotalAmount())
-            throw new ErrorException.CantNotPurchaseException("재고가 부족합니다.");
+    @Transactional
+    public OrderResponse saveOrder(OrderDto orderDto) throws Exception {
 
         // 사용자 포인트 조회
-        PointDto userPoint = pointService.getUserPoint(orderDto.getUserId());
-        if (userPoint.getPoint() < product.getPrice() * orderDto.getTotalAmount())
-            throw new ErrorException.CantNotPurchaseException("포인트가 부족합니다.");
+        long userPoint = pointService.checkUserPoint(orderDto.getUserId());
 
-        // 상품 구매
-        product.setStock(product.getStock() - orderDto.getTotalAmount());
-        productService.save(product);
+        // 상품아이템 확인
+        long productPrice = productService.productPrice(orderDto.getProductId());
+        productService.checkProduct(userPoint, orderDto.getProductId(), orderDto.getTotalAmount());
+
+        // 주문 이력 저장
+        orderService.saveOrderExecute(orderDto);
 
         // 사용자 포인트 차감
-        userPoint.setPoint(userPoint.getPoint() - (product.getPrice() * orderDto.getTotalAmount()));
-        pointService.save(userPoint);
-
-        // 사용자 포인트 히스토리 저장
-        userPoint.setReason("ORDER");
-        userPoint.setRelatedOrderId(order.getOrderId());
-        pointHistoryService.savePointHistory(userPoint);
+        pointService.purchaseExecute(orderDto.getUserId(), productPrice, userPoint);
 
         return OrderResponse.builder()
-                .point(userPoint)
-                .order(order)
-                .product(product)
+                .message("주문에 성공하셨습니다.")
+                .code("200")
                 .build();
     }
 }

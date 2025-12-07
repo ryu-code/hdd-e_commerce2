@@ -17,8 +17,6 @@ public class PointHistoryDto {
 
     String reason;
 
-    Long relatedOrderId;
-
     LocalDateTime createdAt;
 
     LocalDateTime updatedAt;

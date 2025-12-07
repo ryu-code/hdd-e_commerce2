@@ -25,6 +25,8 @@ public class Order {
 
     String orderStatus;
 
+    Long productId;
+
     int totalAmount;
 
     @CreatedDate

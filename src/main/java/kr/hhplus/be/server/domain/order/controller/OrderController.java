@@ -8,6 +8,8 @@ import kr.hhplus.be.server.domain.order.service.OrderService;
 import kr.hhplus.be.server.domain.product.entity.ProductDto;
 import kr.hhplus.be.server.domain.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,10 +17,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/order")
 public class OrderController {
 
+    @Autowired
     private final OrderFacade orderFacade;
 
-    @PutMapping("")
-    public OrderResponse saveOrder(@RequestBody OrderDto orderDto, HttpServletRequest httpServletRequest) {
+    @PutMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public OrderResponse saveOrder(@RequestBody OrderDto orderDto) throws Exception {
 
         return orderFacade.saveOrder(orderDto);
     }

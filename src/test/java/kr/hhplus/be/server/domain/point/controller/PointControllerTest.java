@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.domain.point.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.hhplus.be.global.error.BusinessException;
 import kr.hhplus.be.global.error.ErrorException;
 import kr.hhplus.be.server.domain.point.entity.PointDto;
 import kr.hhplus.be.server.domain.point.facade.PointFacade;
@@ -110,7 +111,7 @@ class PointControllerTest {
 				.build();
 
 		when(pointFacade.addPoint(any(PointDto.class)))
-				.thenThrow(new ErrorException.CantNotChargeException("충전 금액은 0원보다 적을 수 없습니다."));
+				.thenThrow(new BusinessException.CantNotChargeException("충전 금액은 0원보다 적을 수 없습니다."));
 
 		mockMvc.perform(put("/point")
 						.contentType(MediaType.APPLICATION_JSON)

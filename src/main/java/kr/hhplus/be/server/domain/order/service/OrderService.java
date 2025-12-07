@@ -7,5 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface OrderService {
 
-    Order save(OrderDto orderDto);
+//    Order save(OrderDto orderDto);
+
+    void saveOrderExecute(OrderDto orderDto);
 }

@@ -17,7 +17,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{productId}")
-    public ProductDto getProduct(@PathVariable("productId") Long productId, HttpServletRequest httpServletRequest) {
+    public ProductDto getProduct(@PathVariable("productId") Long productId, HttpServletRequest httpServletRequest) throws Exception {
 
         return productService.getProduct(productId);
     }

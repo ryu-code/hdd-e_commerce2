@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.domain.point.facade;
 
+import kr.hhplus.be.global.error.BusinessException;
 import kr.hhplus.be.server.domain.point.entity.PointDto;
 import kr.hhplus.be.server.domain.point.service.PointService;
 import kr.hhplus.be.server.domain.pointHistory.entity.PointResponse;
@@ -16,20 +17,20 @@ public class PointFacade {
 
     @SneakyThrows
     public PointResponse addPoint(PointDto pointDto) {
-        if (pointDto.getUserId() == null) throw new ErrorException.inputDataNullException();
-        if (pointDto.getAmount() < 0) throw new ErrorException.CantNotChargeException("충전 금액은 0원보다 적을 수 없습니다.");
+        if (pointDto.getUserId() == null) throw new BusinessException.InputDataNullException();
+        if (pointDto.getAmount() < 0) throw new BusinessException.InvalidValueException();
 
         // 가지고있던 포인트 조회
-        PointDto prevPoint = pointService.getUserPoint(pointDto.getUserId());
-        prevPoint.setPoint(prevPoint.getPoint() + pointDto.getAmount());
-        pointService.save(prevPoint);
+        long prevPoint = pointService.checkUserPoint(pointDto.getUserId());
+        pointDto.setPoint(prevPoint + pointDto.getAmount());
+        pointService.save(pointDto);
 
         // 포인트 히스토리 등록
-        prevPoint.setReason("CHARGE");
-        pointHistoryService.savePointHistory(prevPoint);
+        pointDto.setReason("CHARGE");
+        pointHistoryService.savePointHistory(pointDto);
 
         return PointResponse.builder()
-                .userPoint(prevPoint)
+                .userPoint(pointDto)
                 .build();
     }
 }
