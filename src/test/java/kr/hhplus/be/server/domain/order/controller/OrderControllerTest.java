@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc(OrderController.class)
-@DisplayName("OrderController 주문 API Tests")
+@DisplayName("OrderController 주문 API Tests ")
 class OrderControllerTest {
 
 	@Autowired
