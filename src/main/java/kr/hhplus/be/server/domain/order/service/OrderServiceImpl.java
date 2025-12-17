@@ -14,7 +14,7 @@ public class OrderServiceImpl implements OrderService{
 
     private final OrderRepository orderRepository;
 
-    public void saveOrderExecute(OrderDto orderDto) {
+    public long saveOrderExecute(OrderDto orderDto) {
         try {
             if (orderDto.getUserId() == null || orderDto.getProductId() == null) throw new BusinessException.InputDataNullException();
             if (orderDto.getTotalAmount() < 1) throw new BusinessException.InvalidValueException();
@@ -25,7 +25,9 @@ public class OrderServiceImpl implements OrderService{
             order.setOrderStatus(orderDto.getOrderStatus());
             order.setTotalAmount(orderDto.getTotalAmount());
 
-            orderRepository.save(order);
+            Order orderSave = orderRepository.save(order);
+
+            return orderSave.getOrderId();
         } catch (Exception e) {
             throw new AppSystemException("주문 저장 중 시스템 오류가 발생했습니다.", e);
         }

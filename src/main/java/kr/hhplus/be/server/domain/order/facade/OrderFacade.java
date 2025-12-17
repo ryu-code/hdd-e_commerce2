@@ -1,17 +1,14 @@
 package kr.hhplus.be.server.domain.order.facade;
 
 import jakarta.transaction.Transactional;
-import kr.hhplus.be.server.domain.order.entity.Order;
 import kr.hhplus.be.server.domain.order.entity.OrderDto;
 import kr.hhplus.be.server.domain.order.entity.OrderResponse;
 import kr.hhplus.be.server.domain.order.service.OrderService;
-import kr.hhplus.be.server.domain.point.entity.PointDto;
 import kr.hhplus.be.server.domain.point.service.PointService;
-import kr.hhplus.be.server.domain.pointHistory.service.PointHistoryService;
-import kr.hhplus.be.server.domain.product.entity.ProductDto;
 import kr.hhplus.be.server.domain.product.service.ProductService;
-import kr.hhplus.be.global.error.ErrorException;
+import kr.hhplus.be.server.util.event.CompletedEvent;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 
 @RequiredArgsConstructor
 public class OrderFacade {
@@ -19,7 +16,7 @@ public class OrderFacade {
     private final PointService pointService;
     private final ProductService productService;
     private final OrderService orderService;
-    private final PointHistoryService pointHistoryService;
+    private final ApplicationEventPublisher eventPublisher;
 
     @Transactional
     public OrderResponse saveOrder(OrderDto orderDto) throws Exception {
@@ -32,10 +29,14 @@ public class OrderFacade {
         productService.checkProduct(userPoint, orderDto.getProductId(), orderDto.getTotalAmount());
 
         // 주문 이력 저장
-        orderService.saveOrderExecute(orderDto);
+        long orderId = orderService.saveOrderExecute(orderDto);
 
         // 사용자 포인트 차감
         pointService.purchaseExecute(orderDto.getUserId(), productPrice, userPoint);
+
+        eventPublisher.publishEvent(
+                new CompletedEvent(orderId, orderDto.getUserId(), orderDto.getProductId(), orderDto.getTotalAmount())
+        );
 
         return OrderResponse.builder()
                 .message("주문에 성공하셨습니다.")

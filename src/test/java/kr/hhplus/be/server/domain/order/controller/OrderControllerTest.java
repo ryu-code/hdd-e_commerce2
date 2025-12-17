@@ -145,7 +145,7 @@ class OrderControllerTest {
 
 		mockMvc.perform(
 						put("/order")
-								.contentType(MediaType.TEXT_PLAIN)   // ❌ JSON 아님
+								.contentType(MediaType.TEXT_PLAIN)
 								.accept(MediaType.APPLICATION_JSON)
 								.content("just text")
 				)
@@ -169,7 +169,6 @@ class OrderControllerTest {
 	void createOrder_fail_missingUserId() throws Exception {
 
 		OrderDto request = OrderDto.builder()
-				// userId 없음
 				.productId(1L)
 				.orderStatus("ORDER")
 				.totalAmount(5)
